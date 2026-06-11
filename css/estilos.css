@@ -60,6 +60,37 @@ main{
     height: 800px;
 }
 
+
+
+/* Control del Scroll Horizontal para dispositivos móviles */
+@media (max-width: 767px) {
+    /* Evita que las columnas se achiquen de más y les da un ancho fijo cómodo en celular */
+    .col-card-mobile {
+        flex: 0 0 85% !important; /* Cada tarjeta ocupa el 85% de la pantalla, dejando ver un pedacito de la siguiente */
+        max-width: 85% !important;
+    }
+    
+    /* Suaviza el deslizado con el dedo en pantallas táctiles */
+    .x-scroll-vintage {
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .col-card-mobile .card {
+        scroll-snap-align: start;
+    }
+}
+
+/* En computadoras (Desktop), anulamos el comportamiento de scroll para que se vea la grilla tradicional */
+@media (min-width: 768px) {
+    .flex-nowrap {
+        flex-wrap: wrap !important; /* Permite romper filas normalmente */
+    }
+    .overflow-auto {
+        overflow: visible !important; /* Quita las barras de scroll */
+    }
+}
+
 /*FOOTER*/
 footer{
     background-color: blueviolet;
